@@ -1,0 +1,12 @@
+<p>{{test}}</p>
+<h1>{{title}}</h1>
+<button id="btn" [disabled]="clicked" (click)="handleClick()">Click me</button>
+
+<div *ngIf="clicked">
+    <h1>{{car.name}}</h1>
+    <img [src]="car.img" width="200x">
+    <h2>{{car.year}}</h2>
+</div>
+
+
+<img src="assets/car6.jpg" class="car">

@@ -1,0 +1,11 @@
+<p>directives works!</p>
+
+<div *ngIf="users">
+    <div *ngFor="let user of users">
+        <div [ngSwitch]="user.gender">
+            <div class="maleBox" *ngSwitchCase="'m'">{{user.name}}</div>
+            <div class="femaleBox" *ngSwitchCase="'f'">{{user.name}}</div>
+            <div class="" *ngSwitchDefault>{{user.name}}</div>
+        </div>
+    </div>
+</div>

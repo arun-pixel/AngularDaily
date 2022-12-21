@@ -1,0 +1,49 @@
+ <div class="row">
+        <div class="column" style="background-color:#aaa;">
+            <div class="container">
+                <h1>Login</h1>
+            <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+
+                <label>UserName : </label>
+          
+                <!-- <input type="text" formControlName="username" (input)="changes($event.target.value)" placeholder="UserName"><br><br> -->
+                <input type="text" formControlName="username" placeholder="UserName"><br><br>
+                <div *ngIf="signUpForm.get('username').dirty">
+                <span *ngIf="signUpForm.get('username').dirty && !signUpForm.get('username').valid && !signUpForm.get('username').errors['userNameNotValid']" class="userInValid">username least have 6 character</span>
+              
+                <span *ngIf="signUpForm.get('username').dirty  && (signUpForm.get('username').errors !== null ? signUpForm.get('username').errors['userNameNotValid'] : false)" class="userInValid">username is invalid</span>
+                <!-- <span *ngIf="valid()" >username is invalid</span>
+                          <span *ngIf="userV" >username is invalid</span>-->
+                </div>
+            
+                <label>Password : </label>
+             
+                <input type="password" formControlName="password" placeholder="Password"><br><br>
+             
+                <label>ConfirmPassword : </label>
+               
+                <input type="password" formControlName="confirmPassword" placeholder="Confirm Password"><br><br>
+                <span *ngIf="!signUpForm.get('confirmPassword').valid && signUpForm.get('confirmPassword').dirty" class="userInValid">confirmpassword and password have to  be same</span>
+        
+               
+                <label>Email : </label>
+             
+                <input type="email" formControlName="email" placeholder="Email"><br><br>
+                <p *ngIf="!signUpForm.get('email').valid && signUpForm.get('email').dirty" class="userInValid">Email is invalid</p>
+            
+                <button type="submit" [disabled]="signUpForm.invalid">Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class="column2" style="background-color:#bbb;">
+            <div class="val">
+                <h1>User Details : </h1>
+            <p>UserName: {{ signUpForm.get('username').value}}</p>
+            <p>Password: {{ signUpForm.get('password').value}}</p>
+            <p>ConfirmPassword: {{ signUpForm.get('confirmPassword').value}}</p>
+            <p>Email: {{ signUpForm.get('email').value}}</p>
+        </div>
+        </div>
+      </div>
+        
+        
